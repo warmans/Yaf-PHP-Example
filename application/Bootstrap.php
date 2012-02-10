@@ -3,12 +3,13 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 
     private $_config;
 
+    /*get a copy of the config*/
     public function _initBootstrap(){
-        /*get a copy of the config*/
         $this->_config = Yaf_Application::app()->getConfig();
     }
 
-    /* This is only required because zend components have a shit load of
+    /*
+     * initIncludePath is only required because zend components have a shit load of
      * include_once calls everywhere. Other libraries could probably just use
      * the autoloader (see _initNamespaces below).
      */
