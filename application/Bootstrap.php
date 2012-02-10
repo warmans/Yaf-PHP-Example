@@ -8,6 +8,14 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         $this->_config = Yaf_Application::app()->getConfig();
     }
 
+    /* This is only required because zend components have a shit load of
+     * include_once calls everywhere. Other libraries could probably just use
+     * the autoloader (see _initNamespaces below).
+     */
+    public function _initIncludePath(){
+        set_include_path(get_include_path() . PATH_SEPARATOR . $this->_config->application->library);
+    }
+
     public function _initErrors(){
         if($this->_config->application->showErrors){
             error_reporting (-1);
@@ -35,7 +43,7 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
 
     public function _initDefaultDbAdapter(){
         $dbAdapter = new Zend_Db_Adapter_Pdo_Sqlite(
-            (array)$this->_config->database->params->toArray()
+            $this->_config->database->params->toArray()
         );
 
         Zend_Db_Table::setDefaultAdapter($dbAdapter);

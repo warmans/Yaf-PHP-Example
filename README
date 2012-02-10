@@ -2,11 +2,21 @@ Yaf-php Example Project
 
 http://uk.php.net/manual/en/book.yaf.php
 
+This is a full-ish example Yaf application implementing:
+- Zend-like folder structure
+- Error Controller
+- Third Party libraries (zend_db)*
+- Routing
+
 Requirements:
 - PHP 5.3+
 - Yaf Extension Installed/Enabled
 - PDO (sqlite)
 - .htaccess must be enabled
+
+Useful:
+- Sqliteman (Linux)
+- Sqlite Administrator (Windows)
 
 Example Development Apache Vhost:
 
@@ -15,7 +25,7 @@ Example Development Apache Vhost:
 
     #the vhost
     <VirtualHost *:80>
-        DocumentRoot [project dir]/application/public
+        DocumentRoot [project dir]/public
         ServerName yaf.dev #or whatever
     </VirtualHost>
 
@@ -27,3 +37,8 @@ Set the environment in you php.ini by adding this to the bottom:
 Set you hosts file to:
 
     127.0.0.1   yaf.dev #or whatever
+
+*Note on included zend component:
+To get this to work just did a find-replace for "require_once" and replace it with "//require_once".
+Loading will all work though the autoloader but not as a require as the lib is not in the
+include path.
