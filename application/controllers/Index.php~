@@ -1,0 +1,11 @@
+<?php
+class IndexController extends Yaf_Controller_Abstract {
+    public function indexAction() {
+
+    die(get_include_path());
+        $users = new UserModel();
+
+        $request = $this->getRequest();
+        $page = $request->getParam('page');
+    }
+}

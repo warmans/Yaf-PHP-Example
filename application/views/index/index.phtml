@@ -1,0 +1,13 @@
+<html>
+ <head>
+   <title>By YAF Blog</title>
+ </head>
+ <body>
+    <?php
+    foreach($this->entries as $entry):
+        echo '<h2>'.$entry->title.' - '.$entry->date_created.'</h2>';
+        echo '<p>'.$entry->content.'</p>';
+    endforeach;
+    ?>
+ </body>
+</html>
