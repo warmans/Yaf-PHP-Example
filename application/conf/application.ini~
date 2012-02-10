@@ -1,6 +1,0 @@
-[product]
-application.directory=APP_PATH "/application/" 
-application.dispatcher.throwException=1
-application.environ=devel
-
-[development : product]
