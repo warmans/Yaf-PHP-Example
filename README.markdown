@@ -3,6 +3,7 @@
 http://uk.php.net/manual/en/book.yaf.php
 
 This is a full-ish example Yaf application implementing:
+
 - Zend-like folder structure
 - Error Controller
 - Third Party libraries (zend_db)
