@@ -1,0 +1,10 @@
+<html>
+ <head>
+   <title><?php echo $this->error;?></title>
+ </head>
+ <body>
+    <h1><?php echo $this->error;?></h1>
+    <?php echo ($this->message) ? '<pre>'.$this->message.'</pre>' : ''; ?>
+    <?php echo ($this->trace) ? '<pre>'.$this->trace.'</pre>' : ''; ?>
+ </body>
+</html>

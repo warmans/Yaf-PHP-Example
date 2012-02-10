@@ -3,11 +3,13 @@
    <title>By YAF Blog</title>
  </head>
  <body>
+     <h1>Entries - Page <?php echo $this->page;?></h1>
     <?php
     foreach($this->entries as $entry):
-        echo '<h2>'.$entry->title.' - '.$entry->date_created.'</h2>';
+        echo '<h3>'.$entry->title.' - '.$entry->date_created.'</h3>';
         echo '<p>'.$entry->content.'</p>';
     endforeach;
     ?>
+     <a href="/index/page/100">Paging Route</a>
  </body>
 </html>

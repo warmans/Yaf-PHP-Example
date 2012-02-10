@@ -9,8 +9,10 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
     }
 
     public function _initErrors(){
-        error_reporting (-1);
-        ini_set('display_errors','On');
+        if($this->_config->application->showErrors){
+            error_reporting (-1);
+            ini_set('display_errors','On');
+        }
     }
 
     public function _initNamespaces(){
@@ -18,14 +20,17 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
     }
 
     public function _initRoutes(){
+
+        //this does nothing useful but shows the regex router in action...
         Yaf_Dispatcher::getInstance()->getRouter()->addRoute(
             "paging_example",
             new Yaf_Route_Regex(
-                "#^/index/page/(\d)#",
+                "#^/index/page/(\d+)#",
                 array('controller' => "index"),
                 array(1 => "page")
             )
         );
+        
     }
 
     public function _initDefaultDbAdapter(){

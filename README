@@ -6,6 +6,7 @@ Requirements:
 - PHP 5.3+
 - Yaf Extension Installed/Enabled
 - PDO (sqlite)
+- .htaccess must be enabled
 
 Example Development Apache Vhost:
 
@@ -16,11 +17,6 @@ Example Development Apache Vhost:
     <VirtualHost *:80>
         DocumentRoot [project dir]/application/public
         ServerName yaf.dev #or whatever
-        <Directory "/">
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
     </VirtualHost>
 
 Set the environment in you php.ini by adding this to the bottom:
