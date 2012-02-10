@@ -19,7 +19,7 @@ This is a full-ish example Yaf application implementing:
 
 Example Development Apache Vhost:
 
-```ini
+```
     #ensure vhosts are enabled
     NameVirtualHost *:80
 
