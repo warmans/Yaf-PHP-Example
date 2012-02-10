@@ -1,4 +1,4 @@
-Yaf-php Example Project
+# Yaf-php Example Project #
 
 http://uk.php.net/manual/en/book.yaf.php
 
@@ -8,17 +8,18 @@ This is a full-ish example Yaf application implementing:
 - Third Party libraries (zend_db)
 - Routing
 
-Requirements:
+## Requirements: ##
 - PHP 5.3+
 - Yaf Extension Installed/Enabled
 - PDO (sqlite)
 - .htaccess must be enabled
 
-Useful:
+## Useful: ##
 - Sqliteman (Linux) / Sqlite Administrator (Windows)
 
 Example Development Apache Vhost:
 
+```ini
     #ensure vhosts are enabled
     NameVirtualHost *:80
 
@@ -27,12 +28,17 @@ Example Development Apache Vhost:
         DocumentRoot [project dir]/public
         ServerName yaf.dev #or whatever
     </VirtualHost>
-
-Set the environment in you php.ini by adding this to the bottom:
-
-    [yaf]
-    yaf.environ=devel
+```
 
 Set you hosts file to:
 
+```
     127.0.0.1   yaf.dev #or whatever
+```
+
+Set the environment in you php.ini by adding this to the bottom:
+
+```ini
+    [yaf]
+    yaf.environ=devel
+```
