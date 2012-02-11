@@ -42,6 +42,14 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         
     }
 
+    public function _initPlugins(Yaf_Dispatcher $dispatcher){
+
+        /*layout allows boilerplate HTML to live in /views/layout rather than every script*/
+        $layout = new LayoutPlugin(APP_PATH.'/views/', 'layout.phtml');
+        $dispatcher->registerPlugin($layout);
+        
+    }
+
     public function _initDefaultDbAdapter(){
         $dbAdapter = new Zend_Db_Adapter_Pdo_Sqlite(
             $this->_config->database->params->toArray()
