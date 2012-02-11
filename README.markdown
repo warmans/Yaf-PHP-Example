@@ -8,6 +8,7 @@ This is a full-ish example Yaf application implementing:
 - Error Controller
 - Third Party libraries (zend_db)
 - Routing
+- Plugins (to achieve layout wrapper view)
 
 ## Requirements: ##
 - PHP 5.3+
