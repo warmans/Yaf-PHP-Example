@@ -9,6 +9,8 @@ This is a full-ish example Yaf application implementing:
 - Third Party libraries (zend_db)
 - Routing
 - Plugins (to achieve layout wrapper view)
+- Registry
+
 
 ## Requirements: ##
 - PHP 5.3+
