@@ -47,6 +47,10 @@ Set the environment in you php.ini by adding this to the bottom:
 
 ## Benchmark ##
 
+To see the equivilent benchmart for Zend see:
+
+https://github.com/warmans/Yaf-PHP-Example-ZendEquiv
+
 ```
 Server Software:        Apache/2.2.21
 Server Hostname:        yaf.dev
