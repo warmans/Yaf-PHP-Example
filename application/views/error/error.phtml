@@ -1,3 +1,15 @@
-<h1><?php echo $this->error;?></h1>
-<?php echo ($this->message) ? '<pre>'.$this->message.'</pre>' : ''; ?>
-<?php echo ($this->trace) ? '<pre>'.$this->trace.'</pre>' : ''; ?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error</title>
+        <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+        <script type="text/javascript" src="/js/main.js"></script>
+    </head>
+    <body>
+        <h1><?php echo $this->error;?></h1>
+        <?php echo ($this->message) ? '<pre>'.$this->message.'</pre>' : ''; ?>
+        <?php echo ($this->trace) ? '<pre>'.$this->trace.'</pre>' : ''; ?>
+    </body>
+</html>
+
+
