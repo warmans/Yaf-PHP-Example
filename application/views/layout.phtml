@@ -1,9 +1,12 @@
+<?php
+    $config = Yaf_Application::app()->getConfig();
+?>
 <!DOCTYPE html>
 <html>
     <head>
         <title><?php echo $this->layout['meta_title'];?></title>
-        <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-        <script type="text/javascript" src="/js/main.js"></script>
+        <link rel="stylesheet" type="text/css" href="<?php echo $config->path->staticContent;?>css/screen.css" />
+        <script type="text/javascript" src="<?php echo $config->path->staticContent;?>js/main.js"></script>
     </head>
     <body>
         <?php

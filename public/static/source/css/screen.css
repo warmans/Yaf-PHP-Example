@@ -1,0 +1,17 @@
+@import 'something.css';
+
+/*headings*/
+h1,h2, h3 {
+    color : #00f;
+}
+
+/*paragraphs*/
+p {
+    letter-spacing : 2px;
+}
+
+/*
+a {
+    text-decoration: none;
+}
+*/

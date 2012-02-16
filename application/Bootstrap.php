@@ -42,6 +42,14 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         
     }
 
+    public function _initDefaultDbAdapter(){
+        $dbAdapter = new Zend_Db_Adapter_Pdo_Sqlite(
+            $this->_config->database->params->toArray()
+        );
+
+        Zend_Db_Table::setDefaultAdapter($dbAdapter);
+    }
+
     public function _initLayout(Yaf_Dispatcher $dispatcher){
        /*layout allows boilerplate HTML to live in /views/layout rather than every script*/
         $layout = new LayoutPlugin('layout.phtml');
@@ -56,12 +64,66 @@ class Bootstrap extends Yaf_Bootstrap_Abstract {
         $dispatcher->registerPlugin($layout);
     }
 
-    public function _initDefaultDbAdapter(){
-        $dbAdapter = new Zend_Db_Adapter_Pdo_Sqlite(
-            $this->_config->database->params->toArray()
+    public function _initCssMinifier(){
+        $minifier = new Minify(new Minify_Strategy_Css());
+        $minifier->minifyDir(
+            $this->_config->static->css->sourceDir,
+            $this->_config->static->css->minDir
         );
-
-        Zend_Db_Table::setDefaultAdapter($dbAdapter);
     }
 
+    public function _initJsMinifier(){
+         $minifier = new Minify(new Minify_Strategy_Js());
+        $minifier->minifyDir(
+            $this->_config->static->js->sourceDir,
+            $this->_config->static->js->minDir
+        );
+    }
+
+    /*
+    private function _minifyStatic($inDir, $outDir, $minifierStrategy){
+        
+        $buildFileLocation = $outDir.'build.last';
+        $lastModified = 0;
+        $buildTime = (is_file($buildFileLocation)) ? file_get_contents($buildFileLocation) : 0;
+
+        //get dir handle
+        $cssFiles = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($inDir, FilesystemIterator::CURRENT_AS_FILEINFO | FilesystemIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+
+        //stat files (once every 10 seconds max)
+        if($buildTime > 0 && $buildTime < time()-10){
+            foreach($cssFiles as $fileInfo):
+                $lastModified = ($fileInfo->getMTime() > $lastModified)
+                    ? $fileInfo->getMTime()
+                    : $lastModified;
+            endforeach;
+        }
+
+        //rebuild required?
+        if($lastModified > $buildTime || ($lastModified === 0 && $buildTime === 0)){
+            $minifier = new Minify($minifierStrategy);
+
+            //re-create private folder structure and files
+            foreach($cssFiles as $fileInfo):
+
+                $itemPath = $outDir.$fileInfo->getFilename();
+
+                switch (TRUE):
+                    case $fileInfo->isFile():
+                        $minifier->loadFile($fileInfo->getRealPath());
+                        file_put_contents($itemPath, $minifier->minify());
+                        break;
+                    case $fileInfo->isDir():
+                        mkdir($itemPath);
+                        break;
+                endswitch;
+            endforeach;
+
+            //update last build time
+            file_put_contents($buildFileLocation, time());
+        }   
+    }*/
 }
