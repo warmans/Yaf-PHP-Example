@@ -1,9 +1,9 @@
 <?php
-class Minify {
+class Eyaf_Minify {
     
     private $_strategy;
 
-    public function  __construct(Minify_Strategy_Abstract $strategy) {
+    public function  __construct(Eyaf_Minify_Strategy_Abstract $strategy) {
         $this->_strategy = $strategy;
     }
 
