@@ -1,3 +1,7 @@
+# ABANDONED #
+
+This project is not in any way maintained and probably does not work. I do not even know if yaf works. If you are looking for an extension-based framework you probably want this: https://phalconphp.com/en/
+
 # Yaf-php Example Project #
 
 http://uk.php.net/manual/en/book.yaf.php
